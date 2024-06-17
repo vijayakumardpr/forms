@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useParams } from "react-router-dom";
-// import { MdArrowBackIosNew } from "react-icons/md";
 import { IoArrowBack } from "react-icons/io5";
 
 function Create() {
@@ -25,7 +24,7 @@ function Create() {
 
   const fetchEmployeeData = async () => {
     try {
-      const response = await axios.get(`http://localhost:8800/view/${id}`);
+      const response = await axios.get(`http://localhost:8800/users/${id}`);
       const employeeData = response.data[0];
       // Set the form values
       const formattedDate = employeeData.dob.split("T")[0];
@@ -59,7 +58,7 @@ function Create() {
 
   async function handlePost(data) {
     try {
-      const response = await axios.post("http://localhost:8800/employee", data);
+      const response = await axios.post("http://localhost:8800/user", data);
       console.log("Post created", response.data);
     } catch (error) {
       console.error("Error creating post:", error);
@@ -67,7 +66,7 @@ function Create() {
   }
 
   async function handleUpdate(data) {
-    await axios.put(`http://localhost:8800/update/${id}`, data);
+    await axios.put(`http://localhost:8800/users/${id}`, data);
     console.log("Employee updated successfully");
   }
 

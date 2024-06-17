@@ -13,7 +13,7 @@ function View() {
 
   async function getData() {
     try {
-      const response = await axios.get(`http://localhost:8800/view/${id}`);
+      const response = await axios.get(`http://localhost:8800/users/${id}`);
       setUser(response.data[0]);
     } catch (error) {
       console.log(error);
@@ -27,7 +27,7 @@ function View() {
       <section>
         <div>
           <Link to="/">
-            <IoArrowBack className="icons back"/>
+            <IoArrowBack className="icons back" />
             {/* <button className="btn">&#8592; Back</button> */}
           </Link>
           <div className="section-header">User Details</div>

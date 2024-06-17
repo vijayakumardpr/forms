@@ -92,7 +92,7 @@ function Home() {
 
   async function getUsers() {
     try {
-      const response = await axios.get(`http://localhost:8800/employee`);
+      const response = await axios.get(`http://localhost:8800/users`);
       // const formattedDate = response.data.dob.split("T")[0];
       const updatedData = response.data?.map((data) => {
         return { ...data, dob: data.dob.split("T")[0] };
@@ -120,7 +120,7 @@ function Home() {
 
   async function handleDeleteConfirm() {
     try {
-      await axios.delete(`http://localhost:8800/employee/${deleteId}`);
+      await axios.delete(`http://localhost:8800/users/${deleteId}`);
       window.location.reload();
       setShowModal(false);
     } catch (error) {
